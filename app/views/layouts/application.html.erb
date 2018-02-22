@@ -9,15 +9,9 @@
   </head>
 
   <body>
-    <nav>
-  <div class="nav">
-    <site-title>Hū</site-title>
-  </div>
-</nav>
-<div class="center">
-<% flash.each do |key, value| %>
-   <div class="alert alert-<%= key %>"><%= value %></div>
- <% end %>
+    <%= render "layouts/nav_bar" %>
+
+
     <%= yield %>
   </body>
 </html>
