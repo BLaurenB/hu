@@ -1,0 +1,11 @@
+<nav>
+  <div class="nav">
+    <div><site-title>Hū</site-title></div>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  </div>
+</nav>
+
+<div class="center"><% flash.each do |key, value| %>
+   <div class="alert alert-<%= key %>"><%= value %>
+ <% end %>
+</div>

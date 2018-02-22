@@ -22,3 +22,7 @@ capybara-*.html
 /tmp
 /coverage/
 /spec/tmp
+
+# Ignore application configuration
+/config/application.yml
+/notes.txt
