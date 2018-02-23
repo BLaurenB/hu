@@ -2,6 +2,10 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET']
 end
 
+=begin
+if trouble, see this article: https://richonrails.com/articles/google-authentication-in-ruby-on-rails/
+=end
+
 
 
 # Here's an example of a possible configuration where the strategy name is changed, the user is asked for extra permissions, the user is always prompted to select his account when logging in and the user's profile picture is returned as a thumbnail:
@@ -16,6 +20,7 @@ end
 #       image_size: 50
 #     }
 # end
+#
 # Auth Hash
 # Here's an example of an authentication hash available in the callback by accessing request.env['omniauth.auth']:
 #
