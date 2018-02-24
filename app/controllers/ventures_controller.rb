@@ -2,11 +2,17 @@ class VenturesController < ApplicationController
 
 
   def index
-  #   require 'openssl'
-  #    doc = Nokogiri::HTML(open('https://trends.google.com/trends/explore?geo=US&gprop=froogle&q=bag,binoculars,laptop,ring,hat', :ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE))
-  #
-  #    entries = doc.css('.material-icons-extended.gray')
-  #    binding.pry
+
+    # agent = Mechanize.new
+    # page = agent.get('https://trends.google.com/trends/explore?geo=US&gprop=froogle&q=bag,binoculars,laptop,ring,hat')
+    # pp page
+
+
+    browser = Watir::Browser.new
+    browser.goto('https://trends.google.com/trends/explore?geo=US&gprop=froogle&q=bag,binoculars,laptop,ring,hat'
+    puts browser.title
+    browser.close
+
   end
 
 

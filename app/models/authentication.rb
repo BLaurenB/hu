@@ -1,6 +1,5 @@
 class Authentication < ApplicationRecord
   belongs_to :user
-  # validates :username, presence: true
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |a|
