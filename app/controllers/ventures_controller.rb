@@ -10,13 +10,8 @@ class VenturesController < ApplicationController
     # @watir_result =  browser.element(css: 'article header h2')
     # binding.pry
     browser.button(text: 'file_download').click
-
-    # browser.button(:xpath => "//button[@onclick='wizardAction(\'start\', \'Starte Upgrade\')']").click
-    # element.class_name
-    # element.click
-    # browser.wait_until { browser.h1.text != 'Main Page' }
-
     browser.close
+    #MAKE SURE TO PRVIDE A LINK TO THE GOOGLE PAGE!!!!
 
   end
 
