@@ -21,7 +21,6 @@ gem 'omniauth-google-oauth2'
 gem 'watir'
 gem 'chart-js-rails'
 gem 'newrelic_rpm'
-gem 'watir'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
