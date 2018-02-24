@@ -51,6 +51,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
+    chart-js-rails (0.1.4)
+      railties (> 3.1)
+    childprocess (0.7.1)
+      ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -121,6 +125,7 @@ GEM
     multipart-post (2.0.0)
     net-http-digest_auth (1.4.1)
     net-http-persistent (2.9.4)
+    newrelic_rpm (4.8.0.341)
     nio4r (2.2.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
@@ -192,6 +197,7 @@ GEM
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
     ruby_dep (1.5.0)
+    rubyzip (1.2.1)
     safe_yaml (1.0.4)
     sass (3.5.5)
       sass-listen (~> 4.0.0)
@@ -204,6 +210,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    selenium-webdriver (3.4.4)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -230,6 +239,8 @@ GEM
       unf_ext
     unf_ext (0.0.7.5)
     vcr (4.0.0)
+    watir (6.10.3)
+      selenium-webdriver (~> 3.4, >= 3.4.1)
     web-console (3.5.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -252,6 +263,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara
+  chart-js-rails
   coffee-rails (~> 4.2)
   factory_bot_rails
   faraday
@@ -260,6 +272,7 @@ DEPENDENCIES
   launchy
   listen (>= 3.0.5, < 3.2)
   mechanize
+  newrelic_rpm
   omniauth-google-oauth2
   pg (>= 0.18, < 2.0)
   pry
@@ -273,6 +286,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   vcr
+  watir
   web-console (>= 3.3.0)
   webmock
 
