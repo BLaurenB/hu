@@ -17,7 +17,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'faraday'
 gem 'figaro'
 gem 'mechanize'
-gem 'omniauth-google-oauth2'
+gem 'omniauth-google-oauth2' ~> 1.1.2
 gem 'watir'
 gem 'chart-js-rails'
 gem 'newrelic_rpm'
