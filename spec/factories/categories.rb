@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :category do
     title "MyString"
-    code "MyString"
+    code 1234
   end
 end
