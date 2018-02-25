@@ -18,12 +18,15 @@ class VenturesController < ApplicationController
     #
     # browser.close
     #MAKE SURE TO PRVIDE A LINK TO THE GOOGLE PAGE!!!!
-
+    
 
 
     # -------------------------------------------
     # Census Trends  - Overall US, Industry specific
     # -------------------------------------------
+
+
+
 
 
   end

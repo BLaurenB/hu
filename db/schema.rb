@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180222232506) do
+ActiveRecord::Schema.define(version: 20180225025347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20180222232506) do
     t.bigint "snapshot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "word"
     t.index ["snapshot_id"], name: "index_terms_on_snapshot_id"
     t.index ["venture_id"], name: "index_terms_on_venture_id"
   end

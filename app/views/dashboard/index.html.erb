@@ -1,0 +1,9 @@
+User Dashboard!
+
+<h2>Hi, <%=current_user.authentication.name%>!</h2>
+
+<h3>Ventures</h3>
+
+<% @ventures.each do |venture| %>
+<%= venture.title %>
+<% end  %>

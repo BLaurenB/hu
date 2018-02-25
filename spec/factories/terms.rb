@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :term do
-    venture nil
-    snapshot nil
+    word
+    venture
+    snapshot 
   end
 end

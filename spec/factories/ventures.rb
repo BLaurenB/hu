@@ -1,8 +1,9 @@
 FactoryBot.define do
   factory :venture do
-    title "MyString"
-    description "MyString"
+    sequence(:title) {|n| "Venture #{n}" }
+    sequence(:description) {|n| "Venture Description #{n}" }
     notes "MyString"
-    user nil
+    user
+    category
   end
 end
