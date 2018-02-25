@@ -1,0 +1,160 @@
+<h2><%= @venture.title%></h2>
+
+Current Search Terms:
+<%= @venture.terms.first.word_1 %>, <%= @venture.terms.first.word_2 %>, <%= @venture.terms.first.word_3 %>, <%= @venture.terms.first.word_4 %><br>
+Terms last updated on <%= @venture.terms.first.updated_at %><br>
+
+<%= link_to "Edit Terms", edit_term_path(@venture.terms.first) %>
+
+<p><br>
+# -------------------------------------------<br>
+# Hu Interest Scores<br>
+# -------------------------------------------<br>
+<h3>Hu Interest Scores</h3>
+link to FAQs#index  - What's the Hu Interest Score?
+Your search terms have a combined interest score of #total_insight_score
+
+Individual insight scores
+for each venture, do the name and the score
+end
+</p>
+
+<p><br>
+# -------------------------------------------<br>
+# Google Trends - Shopping and Search<br>
+# -------------------------------------------<br>
+FAQs#index - how does google score this data?
+</p>
+
+<% term_1 = @venture.terms.first.word_1%>
+<% term_2 = @venture.terms.first.word_2%>
+<% term_3 = @venture.terms.first.word_3%>
+<% term_4 = @venture.terms.first.word_4%>
+
+
+<h3>Results from Google Shopping:</h3>
+
+<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/1308_RC02/embed_loader.js"></script>
+<script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[
+  {"keyword":"bag","geo":"US","time":"today 12-m"},
+  {"keyword":"<%=term_1%>","geo":"US","time":"today 12-m"},
+  {"keyword":"<%=term_2%>","geo":"US","time":"today 12-m"},
+  {"keyword":"<%=term_3%>","geo":"US","time":"today 12-m"},
+  {"keyword":"<%=term_4%>","geo":"US","time":"today 12-m"}
+  ],
+  "category":0,"property":"froogle"}, {"exploreQuery":"geo=US&gprop=froogle&q=bag,<%=term_1%>,<%=term_2%>,<%=term_3%>,<%=term_4%>&date=today 12-m,today 12-m,today 12-m,today 12-m,today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
+
+
+<h3>Results from Google Search:</h3>
+<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/1308_RC02/embed_loader.js"></script> <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[
+  {"keyword":"news","geo":"US","time":"today 12-m"},
+  {"keyword":"<%=term_1%>","geo":"US","time":"today 12-m"},
+  {"keyword":"<%=term_2%>","geo":"US","time":"today 12-m"},
+  {"keyword":"<%=term_3%>","geo":"US","time":"today 12-m"},
+  {"keyword":"<%=term_4%>","geo":"US","time":"today 12-m"}
+  ],
+  "category":0,"property":""}, {"exploreQuery":"geo=US&q=news,<%=term_1%>,<%=term_2%>,<%=term_3%>,<%=term_4%>&date=today 12-m,today 12-m,today 12-m,today 12-m,today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
+
+<p><br>
+# -------------------------------------------<br>
+# Census Trends  - Overall US, Industry specific<br>
+# -------------------------------------------<br>
+<h3>US Market Insight for venture's [industry name]</h3>
+Your industry has a growth rate of [industry #growth] for the past two years.
+!!!! THIS MEANS I NEED TO SAVE THE CENSUS DATA TO DO CALCS ON IT!!!!
+Your industry accounts for industry [#industry_share] % of the total US Retail and Food Service
+
+*All data is gathered from the US MARTS API. See FAQs#index for more information.
+</p>
+
+<h3>Industry Performance: Sales in Millions for [industry .years] (2016-2017)</h3>
+
+
+<% chart_data = [0.2, 0.1, 3.0, 0.6, 1.4, 2.1, 0.2, 0.9, 3.0, 0.6, 1.4, 2.1,0.2, 0.7, 3.0, 0.6, 1.4, 2.1, 0.0, 3.0, 0.5, 0.9, 0.1, 2.3] %>
+<!-- <% background_color =  []%>
+<% (background_color << ('rgba(54, 162, 235, 0.2)'))*12%>
+<% (background_color << ('rgba(75, 192, 192, 0.2)'))*12%>
+
+<% line_color = []%>
+<% (line_color <<('rgba(54, 162, 235, 1)'))*12 %>
+<% (line_color << ('rgba(75, 192, 192, 1)'))*12 %> -->
+
+
+<canvas id="myChart" width="100" height="20"></canvas>
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["JAN16","FEB16","MAR16","APR16","MAY16","JUN16","JUL16","AUG16","SEP16","OCT16","NOV16","DEC16","JAN17","FEB17","MAR17","APR17","MAY17","JUN17","JUL17","AUG17","SEP17","OCT17","NOV17","DEC17"],
+        datasets: [{
+            label: 'SALES IN MILLIONS',
+            data: <%= chart_data %>,
+            // backgroundColor: <%= background_color %>,
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                ],
+            // borderColor: <%= line_color %>,
+            borderColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
