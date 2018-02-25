@@ -1,8 +1,12 @@
 class VenturesController < ApplicationController
 
-
   def index
+    @ventures = current_user.ventures.all
+  end
 
+
+  def show
+    @venture = Venture.where(user: 6).find(params[:id])
     # -------------------------------------------
     # Google Trends - Shopping and Search
     # -------------------------------------------
@@ -36,8 +40,8 @@ class VenturesController < ApplicationController
   end
 
   def create
-    current_user.ventures.new(venture_params)
-    if current_user.ventures.save
+    venture = current_user.ventures.new(venture_params)
+    if venture.save
       redirect_to new_term_path
     else
       render :new
@@ -47,7 +51,7 @@ class VenturesController < ApplicationController
   private
 
     def venture_params
-      params.require(:venture).permit(:title, :description, :category_id)
+      params.require(:venture).permit(:title, :description, :notes, :category_id)
     end
 
 end

@@ -28,7 +28,6 @@ describe "As an authenticated user, when I log in" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit '/dashboard'
-    save_and_open_page
     expect(page).to have_content("Hi, #{user.authentication.name}!")
     expect(page).to have_content("Ventures")
     expect(page).to have_content(venture[0].title)
