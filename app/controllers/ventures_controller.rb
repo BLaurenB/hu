@@ -18,7 +18,7 @@ class VenturesController < ApplicationController
     #
     # browser.close
     #MAKE SURE TO PRVIDE A LINK TO THE GOOGLE PAGE!!!!
-    
+
 
 
     # -------------------------------------------
@@ -27,9 +27,27 @@ class VenturesController < ApplicationController
 
 
 
-
-
   end
 
+
+  def new
+    @venture = Venture.new
+    @categories = Category.all
+  end
+
+  def create
+    current_user.ventures.new(venture_params)
+    if current_user.ventures.save
+      redirect_to new_term_path
+    else
+      render :new
+    end
+  end
+
+  private
+
+    def venture_params
+      params.require(:venture).permit(:title, :description, :category_id)
+    end
 
 end

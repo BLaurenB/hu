@@ -4,6 +4,8 @@ User Dashboard!
 
 <h3>Ventures</h3>
 
+<%= link_to "New Venture", new_venture_path %>
+
 <% @ventures.each do |venture| %>
 <%= venture.title %>
 <% end  %>
