@@ -1,0 +1,17 @@
+<h2>Create Search terms for <%= @venture.title %>  </h2>
+
+<p>Here are your notes: </p><br>
+<p><%= @venture.notes%></p><br>
+
+<%= form_for @term do |f|  %>
+<p>Add up to 4 search terms</p>
+<%= f.text_field :word_1 %>
+<%= f.label :word_1 %>
+<%= f.text_field :word_2 %>
+<%= f.label :word_2 %>
+<%= f.text_field :word_3 %>
+<%= f.label :word_3 %>
+<%= f.text_field :word_4 %>
+<%= f.label :word_4 %>
+<%= f.submit "Get Report", venture_id: @venture.id %>
+<% end  %>
