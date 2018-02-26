@@ -1,13 +1,13 @@
+<% term_1 = @venture.terms.first.word_1%>
+<% term_2 = @venture.terms.first.word_2%>
+<% term_3 = @venture.terms.first.word_3%>
+<% term_4 = @venture.terms.first.word_4%>
 
 
 <h2>Venture: <%= @venture.title%></h2>
 
 Current Search Terms:<br>
-<% term_1 = @venture.terms.first.word_1%>
-<% term_2 = @venture.terms.first.word_2%>
-<% term_3 = @venture.terms.first.word_3%>
-<% term_4 = @venture.terms.first.word_4%>
-"<%= term_1 %>", "<%= term_2 %>", "<%= term_3 %>", "<%= term_4 %>"<br>
+<h3>"<%= term_1 %>", "<%= term_2 %>", "<%= term_3 %>", "<%= term_4 %>"</h3><br>
 Terms last updated on <%= @venture.terms.first.updated_at %><br>
 
 <%= link_to "Edit Terms", edit_term_path(@venture.terms.first) %>
@@ -15,8 +15,8 @@ Terms last updated on <%= @venture.terms.first.updated_at %><br>
 <p><br>
 <h2>Hu Interest Scores</h2>
 
-link to FAQs#index  - What's the Hu Interest Score?<br>
 Your search terms have a combined interest score of #total_insight_score
+What's the Hu Interest Score? (link to FAQs#index)<br>
 </p>
 
 <p><br>
@@ -50,9 +50,9 @@ FAQs#index - How does Google score this data?
   "category":0,"property":""}, {"exploreQuery":"geo=US&q=news,<%=term_1%>,<%=term_2%>,<%=term_3%>,<%=term_4%>&date=today 12-m,today 12-m,today 12-m,today 12-m,today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
 
 <p><br>
-# -------------------------------------------<br>
-# Census Trends  - Overall US, Industry specific<br>
-# -------------------------------------------<br>
+
+<h2>Census Trends  - Overall US, Industry specific</h2><br>
+
 <h3>US Market Insight for venture's [industry name]</h3>
 Your industry has a growth rate of [industry #growth] for the past two years.
 !!!! THIS MEANS I NEED TO SAVE THE CENSUS DATA TO DO CALCS ON IT!!!!

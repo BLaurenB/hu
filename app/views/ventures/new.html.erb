@@ -5,22 +5,24 @@
 <%= f.text_field :title %>
 <%= f.label :description %>
 <%= f.text_field :description %>
-<p>Select your Industry</p>
-<%= f.select(:category_id, @categories.map {|c| [c.title, c.id]}) %>
-<p>Take some time to consider these questions before choosing your search terms, then check out our FAQs on how to choose good search terms.<br>
-  Don't worry, you can change your search terms at any time.</p><br>
+<h3>Select your Industry</h3>
+<%= f.select(:category_id, @categories.map {|c| [c.title, c.id]}) %><br>
+
+<h3>Add Notes:</h3>
+<p>Consider these questions before choosing your search terms on the following page.<br>
+  Check out our FAQs on how to choose good search terms.<br>
+  (Don't worry, you can change your search terms at any time)</p>
   <p>
     <ul>
       <li>What problems does your Venture solve?
       <li>What makes your Venture different or better than other Ventures?
-      <li>What groups of people do you think would be interested in your Venture? Think of factors suck as age, gender, location, and financial capacity.
-      <li>What are some similar companies or products? How would you search for these products online?
+      <li>What groups of people do you think would be interested in your Venture? Think of factors such as age, gender, location, and financial capacity.
+      <li>What are some similar companies or products? How would you search for these products online? What terms would you use?
     </ul>
   </p>
 
-<p>Add Notes:</p>
-<%= f.text_area :notes %>
-<%= f.label :notes %>
+<%= f.label :notes %><br>
+<%= f.text_area :notes %><br>
 <%= f.submit "Next" %>
 
 <% end  %>
