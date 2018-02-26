@@ -6,41 +6,7 @@ class VenturesController < ApplicationController
 
 
   def show
-    # -------------------------------------------
-    # Google Trends - Shopping and Search. Make into a Service and Decorators
-    # -------------------------------------------
-    # Rails.cache.fetch(:get_google_csv, expires_in: 7.days)  {} #Need to cache each run - shopping and searching separately!
 
-    # #SHOPPING
-      # browser = Watir::Browser.new
-      # browser.goto("https://trends.google.com/trends/explore?geo=US&gprop=froogle&q=bag,#{@term.word_1},#{@term.word_2},#{@term.word_3},#{@term.word_4}")
-      # browser.button(text: 'file_download').click
-      # # binding.pry
-      # browser.close
-        #
-        # file_path_1 = "/Users/laurenbillington/Downloads/multiTimeline.csv.crdownload"
-        #
-        # csv_text_1 = File.expand_path(file_path_1)
-        #
-        # file = File.open(csv_text_1)
-        # file.gets
-        # csv = CSV.new(file, headers: true)
-        # csv.each do |row|
-        #    GoogleShopping.new(row.to_hash)
-        # end
-
-        # @google_shopping = SomeOtherGoogleClass.classmethod(terms?)I want to be able to call @gsh.term_1_hu_score (which is all term_1s averaged/ all standards averaged.)
-
-
-
-        # firstTime = true
-        # CSV.foreach
-        #     if firstTime, break and set firstTime = false
-        #     do stuff
-        #  end
-
-        # {"Category: All categories"=>"Week", nil=>"backpack: (United States)"}
-        # {"Category: All categories"=>"2017-02-19", nil=>"36"}
 
     #SEARCHING
       # browser = Watir::Browser.new
@@ -65,9 +31,9 @@ class VenturesController < ApplicationController
     @venture = Venture.where(user: 6).find(params[:id])
     @term = @venture.terms.first # ".first" will change based on whether the user has updated search terms
     industry = @venture.category_id
-
-    # binding.pry
     @hu_insight = HuInsights.insight_maker(@term) #industry
+    binding.pry
+
   end
 
 

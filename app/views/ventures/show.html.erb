@@ -1,19 +1,13 @@
 
 
+<h2>Venture: <%= @venture.title%></h2>
 
-<%= @hu_insight. %>
-<br>
-<br>
-<br>
-
-<h2><%= @venture.title%></h2>
-
-Current Search Terms:
-<% term_1 = @venture.terms.first.word_1%> *!*!*!*! user a Presenter for this!
+Current Search Terms:<br>
+<% term_1 = @venture.terms.first.word_1%>
 <% term_2 = @venture.terms.first.word_2%>
 <% term_3 = @venture.terms.first.word_3%>
 <% term_4 = @venture.terms.first.word_4%>
-<%= term_1 %>, <%= term_2 %>, <%= term_3 %>, <%= term_4 %><br>
+"<%= term_1 %>", "<%= term_2 %>", "<%= term_3 %>", "<%= term_4 %>"<br>
 Terms last updated on <%= @venture.terms.first.updated_at %><br>
 
 <%= link_to "Edit Terms", edit_term_path(@venture.terms.first) %>
