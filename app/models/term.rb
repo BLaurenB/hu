@@ -1,7 +1,7 @@
 class Term < ApplicationRecord
-  validates :word_1, presence: true
+  validates :words, presence: true
+  serialize :words, Array
 
-  # belongs_to :model, polymorphic: true
 
   belongs_to :venture
   belongs_to :snapshot
