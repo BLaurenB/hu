@@ -24,19 +24,14 @@ class VenturesController < ApplicationController
 
         csv_text_1 = File.expand_path(file_path_1)
 
-        # CSV.foreach(csv_text_1, :headers => true, :encoding => 'ISO-8859-1') do |row|
-        #   GoogleShopping.new(row.to_hash)
-        # end
-
         file = File.open(csv_text_1)
-        file.gets # read the first line, but ignore it since it contains non-CSV data
+        file.gets
         csv = CSV.new(file, headers: true)
-        # binding.pry
         csv.each do |row|
            GoogleShopping.new(row.to_hash)
         end
 
-        @google_shopping = SomeOtherGoogleClass.classmethod(terms?)I want to be able to call @gsh.term_1_hu_score (which is all term_1s averaged/ all standards averaged.)
+        # @google_shopping = SomeOtherGoogleClass.classmethod(terms?)I want to be able to call @gsh.term_1_hu_score (which is all term_1s averaged/ all standards averaged.)
 
 
 
