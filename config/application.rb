@@ -28,4 +28,7 @@ module Hu
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
+
+config.serve_static_assets = true
+
 end
