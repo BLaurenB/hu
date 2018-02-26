@@ -6,8 +6,6 @@ class VenturesController < ApplicationController
 
 
   def show
-    @venture = Venture.where(user: 6).find(params[:id])
-    @term = @venture.terms.first
     # -------------------------------------------
     # Google Trends - Shopping and Search. Make into a Service and Decorators
     # -------------------------------------------
@@ -64,8 +62,11 @@ class VenturesController < ApplicationController
     # Census Trends  - Overall US, Industry specific
     # -------------------------------------------
 
+    @venture = Venture.where(user: 6).find(params[:id])
+    @term = @venture.terms.first
+    industry = @venture.category_id
 
-
+    @hu_insight = HuInsight.make_insights(@term, industry)
   end
 
 
