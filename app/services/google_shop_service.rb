@@ -3,7 +3,7 @@ class GoogleShopService
 #need to initialize terms or pass them down the line.
 
   def initialize(term)
-    @term = terms
+    @term = term
   end
 
 
@@ -18,9 +18,10 @@ class GoogleShopService
 
   def parse_csv
     scrape
+    # binding.pry
 
-    file_path_1 = "/Users/laurenbillington/Downloads/multiTimeline.csv.crdownload"
-    csv_file= File.expand_path(file_path_1)
+    file_path = "/Users/laurenbillington/Downloads/multiTimeline.csv"
+    csv_file = File.expand_path(file_path)
     file = File.open(csv_file)
     file.gets
     csv = CSV.new(file, headers: true)

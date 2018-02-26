@@ -216,7 +216,8 @@ body {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
   color: #000000;
-  margin: 0px;
+  margin-right: 100px;
+  margin-left: 100px;
   padding: 200;
 }
 

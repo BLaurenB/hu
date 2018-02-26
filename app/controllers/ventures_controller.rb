@@ -17,17 +17,17 @@ class VenturesController < ApplicationController
       # browser.button(text: 'file_download').click
       # # binding.pry
       # browser.close
-
-        file_path_1 = "/Users/laurenbillington/Downloads/multiTimeline.csv.crdownload"
-
-        csv_text_1 = File.expand_path(file_path_1)
-
-        file = File.open(csv_text_1)
-        file.gets
-        csv = CSV.new(file, headers: true)
-        csv.each do |row|
-           GoogleShopping.new(row.to_hash)
-        end
+        #
+        # file_path_1 = "/Users/laurenbillington/Downloads/multiTimeline.csv.crdownload"
+        #
+        # csv_text_1 = File.expand_path(file_path_1)
+        #
+        # file = File.open(csv_text_1)
+        # file.gets
+        # csv = CSV.new(file, headers: true)
+        # csv.each do |row|
+        #    GoogleShopping.new(row.to_hash)
+        # end
 
         # @google_shopping = SomeOtherGoogleClass.classmethod(terms?)I want to be able to call @gsh.term_1_hu_score (which is all term_1s averaged/ all standards averaged.)
 
@@ -63,10 +63,11 @@ class VenturesController < ApplicationController
     # -------------------------------------------
 
     @venture = Venture.where(user: 6).find(params[:id])
-    @term = @venture.terms.first
+    @term = @venture.terms.first # ".first" will change based on whether the user has updated search terms
     industry = @venture.category_id
 
-    @hu_insight = HuInsight.make_insights(@term, industry)
+    # binding.pry
+    @hu_insight = HuInsights.insight_maker(@term) #industry
   end
 
 
