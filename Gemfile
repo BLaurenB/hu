@@ -24,6 +24,11 @@ gem 'chart-js-rails'
 gem 'newrelic_rpm'
 gem 'csv'
 
+# group :production, do
+#   gem 'rails_12factor'
+# end
+
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
