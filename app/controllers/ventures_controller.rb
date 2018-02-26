@@ -7,11 +7,7 @@ class VenturesController < ApplicationController
 
   def show
 
-    # -------------------------------------------
-    # Census Trends  - Overall US, Industry specific
-    # -------------------------------------------
-
-    @venture = Venture.where(user: 6).find(params[:id])
+    @venture = Venture.where(user_id: current_user.id).find(params[:id])
     @term = @venture.terms.first # ".first" will change based on whether the user has updated search terms
     industry = @venture.category_id
     @hu_insight = HuInsights.insight_maker(@term) #industry

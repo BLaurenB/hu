@@ -5,13 +5,17 @@
 
 <%= form_for @term do |f|  %>
 <p>Add up to 4 search terms</p>
-<%= f.text_field :word_1 %>
-<%= f.label :word_1 %>
-<%= f.text_field :word_2 %>
-<%= f.label :word_2 %>
-<%= f.text_field :word_3 %>
-<%= f.label :word_3 %>
-<%= f.text_field :word_4 %>
-<%= f.label :word_4 %>
+<%= f.text_field('words', multiple: true) %>
+<%= f.text_field('words', multiple: true) %>
+<%= f.text_field('words', multiple: true) %>
+<%= f.text_field('words', multiple: true) %>
+
 <%= f.submit "Get Report", venture_id: @venture.id %>
 <% end  %>
+
+
+
+<!-- If you use nested resources,
+   <%= text_field_tag 'user[firstname]' %>
+in your form, will result in
+   params[:user][:firstname] -->

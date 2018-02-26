@@ -9,10 +9,10 @@ class TermsController < ApplicationController
   def create
     @venture = current_user.ventures.last
     snapshot = Snapshot.create(venture_id: @venture.id)
-# binding.pry
+
     @term = @venture.terms.new(term_params)
     @term.update(venture_id: @venture.id, snapshot_id: snapshot.id)
-
+    binding.pry
     if @term.save
       redirect_to venture_path(@venture)
     else
@@ -24,7 +24,7 @@ class TermsController < ApplicationController
 
   private
     def term_params
-      params.require(:term).permit(:word_1, :word_2, :word_3, :word_4)
+      params.require(:term).permit(:words => [])
     end
 
 end

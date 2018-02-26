@@ -11,8 +11,7 @@ class GoogleShopService
 
     browser = Watir::Browser.new
     browser.goto("https://trends.google.com/trends/explore?geo=US&gprop=froogle&q=bag,#{@term.word_1},#{@term.word_2},#{@term.word_3},#{@term.word_4}")
-    browser.goto("https://trends.google.com/trends/explore?geo=US&gprop=froogle&q=bag,#{@term.word_1},#{@term.word_2},#{@term.word_3},#{@term.word_4}")
-    #terms.join(",")
+    # browser.goto("https://trends.google.com/trends/explore?geo=US&gprop=froogle&q=bag,#{terms.join(',')}"
     browser.button(text: 'file_download').click
     browser.close
 
@@ -35,9 +34,9 @@ class GoogleShopService
     }
   end
 
-  def cache_key
-    terms.join('_')  #should generate a string
-  end
+  # def cache_key
+  #   terms.join('_')  #should generate a string
+  # end
 
 
 end
