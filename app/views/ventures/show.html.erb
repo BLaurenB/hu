@@ -1,36 +1,27 @@
 <h2><%= @venture.title%></h2>
 
 Current Search Terms:
-<%= @venture.terms.first.word_1 %>, <%= @venture.terms.first.word_2 %>, <%= @venture.terms.first.word_3 %>, <%= @venture.terms.first.word_4 %><br>
+<% term_1 = @venture.terms.first.word_1%> *!*!*!*! user a Presenter for this!
+<% term_2 = @venture.terms.first.word_2%>
+<% term_3 = @venture.terms.first.word_3%>
+<% term_4 = @venture.terms.first.word_4%>
+<%= term_1 %>, <%= term_2 %>, <%= term_3 %>, <%= term_4 %><br>
 Terms last updated on <%= @venture.terms.first.updated_at %><br>
 
 <%= link_to "Edit Terms", edit_term_path(@venture.terms.first) %>
 
 <p><br>
-# -------------------------------------------<br>
-# Hu Interest Scores<br>
-# -------------------------------------------<br>
+<h2>Hu Interest Scores</h2>
 <h3>Hu Interest Scores</h3>
-link to FAQs#index  - What's the Hu Interest Score?
+link to FAQs#index  - What's the Hu Interest Score?<br>
 Your search terms have a combined interest score of #total_insight_score
-
-Individual insight scores
-for each venture, do the name and the score
-end
 </p>
 
 <p><br>
-# -------------------------------------------<br>
-# Google Trends - Shopping and Search<br>
-# -------------------------------------------<br>
-FAQs#index - how does google score this data?
+<h2>Google Trends - Shopping and Search</h2><br>
+All data gathered from https://trends.google.com/trends/explore
+FAQs#index - How does Google score this data?
 </p>
-
-<% term_1 = @venture.terms.first.word_1%>
-<% term_2 = @venture.terms.first.word_2%>
-<% term_3 = @venture.terms.first.word_3%>
-<% term_4 = @venture.terms.first.word_4%>
-
 
 <h3>Results from Google Shopping:</h3>
 

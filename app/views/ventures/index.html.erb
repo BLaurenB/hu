@@ -1,5 +1,10 @@
 <h2>My Ventures</h2>
 
+
+*!*!*!*
+Individual insight scores
+for each venture, do the name and the score
+end
 <% @ventures.each do |venture| %>
 <%= venture.title %> <%= link_to "Edit #{venture.title}", edit_venture_path(venture)%><br>
 <% end  %>
