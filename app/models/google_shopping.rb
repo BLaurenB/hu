@@ -12,4 +12,11 @@ class GoogleShopping
   end
 
 
+  def self.make_shopping_classlets(parse_csv)
+    parse_csv.each do |row|
+      GoogleShopping.new(row)
+    end
+  end
+
+
 end
