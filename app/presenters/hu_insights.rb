@@ -8,17 +8,17 @@ class HuInsights
     # @census = Census.new(census_array)
   end
 
-  def self.insight_maker(term) #industry
-    HuInsights.new(shop_service(term).parse_csv, search_service(term).parse_csv)
+  def self.insight_maker(term_array) #industry
+    HuInsights.new(shop_service(term_array).parse_csv, search_service(term_array).parse_csv)
     # census_service(industry_code)."census_service_method which sets the wheels in motion retroactively"
   end
 
-  def self.shop_service(term)
-    GoogleShopService.new(term)
+  def self.shop_service(term_array)
+    GoogleShopService.new(term_array)
   end
 
-  def self.search_service(term)
-    GoogleSearchService.new(term)
+  def self.search_service(term_array)
+    GoogleSearchService.new(term_array)
   end
 
   # def self.census_service(industry)

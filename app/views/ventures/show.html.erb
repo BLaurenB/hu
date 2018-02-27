@@ -1,7 +1,8 @@
-<% term_1 = @venture.terms.first.word_1%>
-<% term_2 = @venture.terms.first.word_2%>
-<% term_3 = @venture.terms.first.word_3%>
-<% term_4 = @venture.terms.first.word_4%>
+
+<% term_1 = @terms.words[0]%>
+<% term_2 = @terms.words[1]%>
+<% term_3 = @terms.words[2]%>
+<% term_4 = @terms.words[3]%>
 
 
 <h2>Venture: <%= @venture.title%></h2>
@@ -10,7 +11,7 @@ Current Search Terms:<br>
 <h3>"<%= term_1 %>", "<%= term_2 %>", "<%= term_3 %>", "<%= term_4 %>"</h3><br>
 Terms last updated on <%= @venture.terms.first.updated_at %><br>
 
-<%= link_to "Edit Terms", edit_term_path(@venture.terms.first) %>
+<%= link_to "Edit Terms", edit_term_path(@venture.terms.last) %>
 
 <p><br>
 <h2>Hu Interest Scores</h2>
@@ -81,9 +82,9 @@ Your industry accounts for industry [#industry_share] % of the total US Retail a
 <script>
 
 let baseUrl = "https://api.census.gov"
-let industry = <%= @venture.industry_id %>
+let industry = <%= @venture.category_id %>
 const populateCensus = (industry) => {
-  fetch(`https://api.census.gov/data/timeseries/eits/marts?get=cell_value&seasonally_adj=yes&time=from+2016-01+to+2017-12&category_code=453&key=4d90fa05bef0062f947d6438565029781394b599&data_type_code=SM`)
+  fetch(`https://api.census.gov/data/timeseries/eits/marts?get=cell_value&seasonally_adj=yes&time=from+2016-01+to+2017-12&category_code=453&key=${ENV["US_CENSUS_KEY"]}&data_type_code=SM`)
   .then((response) => response.json)
   .then((raw_data) => {
     return raw_data.map(function(set) {

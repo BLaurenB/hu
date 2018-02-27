@@ -6,11 +6,11 @@ class VenturesController < ApplicationController
 
 
   def show
-
     @venture = Venture.where(user_id: current_user.id).find(params[:id])
-    @term = @venture.terms.first # ".first" will change based on whether the user has updated search terms
+    @terms = @venture.terms.last # ".last" will change based on whether the user has updated search terms
     industry = @venture.category_id
-    @hu_insight = HuInsights.insight_maker(@term) #industry
+    @hu_insight = HuInsights.insight_maker(@terms.words)
+    # binding.pry
 
   end
 
