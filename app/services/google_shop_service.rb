@@ -6,12 +6,15 @@ attr_reader :terms
     @terms = term_array
   end
 
+  def terms_for_link
+    (terms.join(',')).gsub(' ','%20')
+  end
 
   def scrape
 
     browser = Watir::Browser.new
     # browser.goto("https://trends.google.com/trends/explore?geo=US&gprop=froogle&q=bag,#{@term.word_1},#{@term.word_2},#{@term.word_3},#{@term.word_4}")
-    browser.goto("https://trends.google.com/trends/explore?geo=US&gprop=froogle&q=bag,#{(terms.join(',')).gsub(' ','%20')}")
+    browser.goto("https://trends.google.com/trends/explore?geo=US&gprop=froogle&q=bag,#{terms_for_link}")
     # binding.pry
     browser.button(text: 'file_download').click
     browser.close

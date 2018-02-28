@@ -7,11 +7,15 @@ attr_reader :terms
   end
 
 
+  def terms_for_link
+    (terms.join(',')).gsub(' ','%20')
+  end
+
   def scrape
 
     browser = Watir::Browser.new
     # browser.goto("https://trends.google.com/trends/explore?geo=US&q=news,#{@term.word_1},#{@term.word_2},#{@term.word_3},#{@term.word_4}")
-    browser.goto("https://trends.google.com/trends/explore?geo=US&q=news,#{(terms.join(',')).gsub(' ','%20')}")
+    browser.goto("https://trends.google.com/trends/explore?geo=US&q=news,#{terms_for_link}")
     browser.button(text: 'file_download').click
     browser.close
 
@@ -42,6 +46,7 @@ attr_reader :terms
       file.gets
       csv = CSV.new(file, headers: true)
       File.delete(file_path)
+      # binding.pry
       csv.map do |row|
          row.to_hash
       end
