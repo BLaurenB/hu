@@ -3,29 +3,41 @@
  <% end %>
   </div>
 </div>
-<% term_1 = @terms.words[0]%>
-<% term_2 = @terms.words[1]%>
-<% term_3 = @terms.words[2]%>
-<% term_4 = @terms.words[3]%>
-
+<% term_1 = @terms.words[0]%><% term_2 = @terms.words[1]%><% term_3 = @terms.words[2]%><% term_4 = @terms.words[3]%>
 
 <h2>Venture: <%= @venture.title%></h2>
 
-Current Search Terms:<br>
-<h3>"<%= term_1 %>", "<%= term_2 %>", "<%= term_3 %>", "<%= term_4 %>"</h3><br>
-Terms last updated on <%= @venture.terms.first.updated_at %><br>
-
-
-<p><br>
+<h3>Current Search Terms:</h3>
+<h5>"<%= term_1 %>", "<%= term_2 %>", "<%= term_3 %>", "<%= term_4 %>"</h5>
+<p>Terms last updated on <%= @venture.terms.first.updated_at %></p><br>
 <h2>Hu Interest Scores</h2>
-
-Your search terms have a combined interest score of #total_insight_score
-What's the Hu Interest Score? (link to FAQs#index)<br>
-</p>
+<p>Total Insight Scores (LINK THE SCORE TO THE FAQ PAGE)<br>
+0-20: Low Interest (this range may be acceptable when considering other variables)<br>
+20-40: Some Interest<br>
+40-60: Medium Interest<br>
+60 + HOT!<br>
+<br>
+If you score was less than 20 and your industry is not growing (or the industry is a comparatively small one), your Venture may not be financially successful. However, many Americans are successful in niche markets. Continue your research into regions of interest (local brick and mortor versus e-commerce), and the price per item or service which would be enticing to a small customer base/<p>
+<div class="insight-2-column box">
+  <div class="google-col-1 box">
+    <h3>Google Shop Engine data</h3>
+    <p><%= term_1 %>: <%= @hu_insight.google_shop.word_1_insight %></p>
+    <p><%= term_2 %>: <%= @hu_insight.google_shop.word_2_insight %></p>
+    <p><%= term_3 %>: <%= @hu_insight.google_shop.word_3_insight %></p>
+    <p><%= term_4 %>: <%= @hu_insight.google_shop.word_4_insight %></p>
+  </div > <!--class="google-col-1"-->
+  <div class="google-col-2 box">
+    <h3>Google Search Engine data</h3>
+    <p><%= term_1 %>: <%= @hu_insight.google_search.word_1_insight %></p>
+    <p><%= term_2 %>: <%= @hu_insight.google_search.word_2_insight %></p>
+    <p><%= term_3 %>: <%= @hu_insight.google_search.word_3_insight %></p>
+    <p><%= term_4 %>: <%= @hu_insight.google_search.word_4_insight %></p>
+  </div > <!--class="google-col2"-->
+</div > <!--class="insight-2-column"-->
 
 <p><br>
-<h2>Google Trends - Shopping and Search</h2><br>
-All data gathered from https://trends.google.com/trends/explore
+<h2>Google Trends - Shopping and Search</h2>
+All data gathered from https://trends.google.com/trends/explore<br>
 FAQs#index - How does Google score this data?
 </p>
 

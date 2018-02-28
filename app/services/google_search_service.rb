@@ -11,7 +11,7 @@ attr_reader :terms
 
     browser = Watir::Browser.new
     # browser.goto("https://trends.google.com/trends/explore?geo=US&q=news,#{@term.word_1},#{@term.word_2},#{@term.word_3},#{@term.word_4}")
-    browser.goto("https://trends.google.com/trends/explore?geo=US&q=news,#{terms.join(',')}")
+    browser.goto("https://trends.google.com/trends/explore?geo=US&q=news,#{(terms.join(',')).gsub(' ','%20')}")
     browser.button(text: 'file_download').click
     browser.close
 
