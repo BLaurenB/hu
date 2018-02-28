@@ -1,5 +1,10 @@
 class TermsController < ApplicationController
 
+  def index
+    @venture = Venture.find(params[:venture_id])
+    @terms = @venture.terms
+  end
+
   def new
     @venture = current_user.ventures.last
     @term = @venture.terms.new
@@ -19,6 +24,18 @@ class TermsController < ApplicationController
       flash[:notice] = "Please try again"
       redirect_to new_term_path
     end
+
+  end
+
+  def edit
+    @term = Term.find(params[:id]) #need to namescpae this!
+
+  end
+
+  def update
+    term = @venture.terms.find(params[:id])
+    term.update(term_params)
+    redirect_to ventures_path
 
   end
 

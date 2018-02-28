@@ -19,7 +19,7 @@ attr_reader :terms
 
 
   def cache_key
-    terms.join('_')
+  "google_search_".concat(terms.join('_'))
   end
 
   def determine_file_name
@@ -34,7 +34,7 @@ attr_reader :terms
 
   def parse_csv
 
-    # Rails.cache.fetch(:google_search_parse[cache_key]) {
+    Rails.cache.fetch(cache_key) {
       scrape
       file_path = determine_file_name
       csv_file = File.expand_path(file_path)
@@ -45,7 +45,7 @@ attr_reader :terms
       csv.map do |row|
          row.to_hash
       end
-    # }
+    }
   end
 
 

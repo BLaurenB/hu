@@ -25,6 +25,7 @@ gem 'chart-js-rails'
 gem 'newrelic_rpm'
 gem 'csv'
 gem 'redis-rails'
+gem 'sidekiq'
 
 # group :production, do
 #   gem 'rails_12factor'

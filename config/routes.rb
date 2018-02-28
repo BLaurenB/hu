@@ -10,9 +10,12 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   resources :welcome, only: [:index]
 
-  resources :ventures, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  resources :terms, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
+  resources :ventures do
+    resources :terms, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  end
+
+  resources :ventures, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
 
 end

@@ -10,11 +10,22 @@
   </head>
 
   <body>
-    <%= render "layouts/nav_bar" %>
-    <div class="main">
+    <div class="box site-wrapper">
+      <div class="box header">
+        <%= render 'layouts/nav_bar' %>
+      </div><!-- <div class="box header"> -->
 
-    <%= yield %>
-  </div> <!-- end class="main"-->
+        <%= yield %>
+
+
+    <div class="box footer center">
+    <%= render 'layouts/footer' %>
+    </div> <!-- <div class="box footer"> -->
+  </div> <!-- <div class="site-wrapper"> -->
 
   </body>
+
+
+
+
 </html>

@@ -10,7 +10,7 @@ class VenturesController < ApplicationController
     @terms = @venture.terms.last # ".last" will change based on whether the user has updated search terms
     industry = @venture.category_id
     @hu_insight = HuInsights.insight_maker(@terms.words)
-    # binding.pry
+
 
   end
 
