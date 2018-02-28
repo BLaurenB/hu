@@ -96,29 +96,29 @@ Your industry accounts for industry [#industry_share] % of the total US Retail a
 <canvas id="myChart" width="100" height="20"></canvas>
 <script>
 
-let baseUrl = "https://api.census.gov"
-let industry = <%= @venture.category_id %>
-const populateCensus = (industry) => {
-  fetch(`https://api.census.gov/data/timeseries/eits/marts?get=cell_value&seasonally_adj=yes&time=from+2016-01+to+2017-12&category_code=453&key=${ENV["US_CENSUS_KEY"]}&data_type_code=SM`)
-  .then((response) => response.json)
-  .then((raw_data) => {
-    return raw_data.map(function(set) {
-      console.log(set)
-    })
-  })
-  .catch()
-};
-
-
-
-.then((projects) => {
-    return projects.forEach((project) => {
-      appendProject(project, project.id);
-      fetchPalettes(project.id);
-    })
-  })
-
-
+// let baseUrl = "https://api.census.gov"
+// let industry = <%= @venture.category_id %>
+// const populateCensus = (industry) => {
+//   fetch(`https://api.census.gov/data/timeseries/eits/marts?get=cell_value&seasonally_adj=yes&time=from+2016-01+to+2017-12&category_code=453&key=${ENV["US_CENSUS_KEY"]}&data_type_code=SM`)
+//   .then((response) => response.json)
+//   .then((raw_data) => {
+//     return raw_data.map(function(set) {
+//       console.log(set)
+//     })
+//   })
+//   .catch()
+// };
+//
+//
+//
+// .then((projects) => {
+//     return projects.forEach((project) => {
+//       appendProject(project, project.id);
+//       fetchPalettes(project.id);
+//     })
+//   })
+//
+//
 
 var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {

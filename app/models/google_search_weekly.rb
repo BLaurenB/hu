@@ -3,7 +3,7 @@ class GoogleSearchWeekly
   attr_reader :standard, :word_1, :word_2, :word_3, :word_4
 
   def initialize(attrs)
-    @week = attrs.values[0].to_i
+    @week = attrs.values[0]
     @standard = attrs.values[1].to_i
     @word_1 = attrs.values[2].to_i
     @word_2 = attrs.values[3].to_i
