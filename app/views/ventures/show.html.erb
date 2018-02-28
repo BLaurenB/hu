@@ -1,4 +1,8 @@
-
+<div class="box"><% flash.each do |key, value| %>
+   <div class="alert alert-<%= key %>"><%= value %>
+ <% end %>
+  </div>
+</div>
 <% term_1 = @terms.words[0]%>
 <% term_2 = @terms.words[1]%>
 <% term_3 = @terms.words[2]%>
@@ -11,7 +15,6 @@ Current Search Terms:<br>
 <h3>"<%= term_1 %>", "<%= term_2 %>", "<%= term_3 %>", "<%= term_4 %>"</h3><br>
 Terms last updated on <%= @venture.terms.first.updated_at %><br>
 
-<%= link_to "Edit Terms", edit_term_path(@venture.terms.last) %>
 
 <p><br>
 <h2>Hu Interest Scores</h2>

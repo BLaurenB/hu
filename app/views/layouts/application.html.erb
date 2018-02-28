@@ -11,21 +11,16 @@
 
   <body>
     <div class="box site-wrapper">
-      <div class="box header">
         <%= render 'layouts/nav_bar' %>
-      </div><!-- <div class="box header"> -->
-
-        <%= yield %>
-
-
+      <div class="main">
+        <div class="main-container">
+          <%= yield %>
+        </div><!-- <div class="main"> -->
+      </div><!-- <div class="main-container"> -->
+        
     <div class="box footer center">
     <%= render 'layouts/footer' %>
     </div> <!-- <div class="box footer"> -->
   </div> <!-- <div class="site-wrapper"> -->
-
   </body>
-
-
-
-
 </html>

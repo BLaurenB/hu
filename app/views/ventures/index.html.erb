@@ -1,3 +1,8 @@
+<div class="box"><% flash.each do |key, value| %>
+   <div class="alert alert-<%= key %>"><%= value %>
+ <% end %>
+  </div>
+</div>
 <h2>My Ventures</h2>
 
 <h3><%= link_to "Start a New Venture", new_venture_path %></h3><br><br>

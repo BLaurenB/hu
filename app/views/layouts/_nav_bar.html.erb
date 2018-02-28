@@ -1,24 +1,21 @@
-<nav>
-  <div class="header box">
-    <div class="nav-col-1 box "><site-title>Hū</site-title>
-    </div>
-      <div class="nav-col-4 box">
-          <% if current_user %>
-          <h3>Signed in as <%= current_user.authentication.name %></h3>
-      </div>
-      <div class="nav-col-6 box">
-          <h3><%= link_to "Sign out", signout_path, id: "sign_out" %> </h3>
-        <% else %>
-          <h3><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %></h3>
-        <% end %>
-      </div>
+<div class="box header">
 
+  <div class="nav-wrapper box">
+    <div class="nav-col-1 box site-title">Hū
     </div>
 
-</nav>
-
-<div class="nav-col-3 nav-col-4 box"><% flash.each do |key, value| %>
-   <div class="alert alert-<%= key %>"><%= value %>
- <% end %>
+    <% if current_user %>
+    <div class="nav-col-3 box login-logout right">
+       <%= link_to "You-Hu", dashboard_path %>
+    </div>
+    <div class="nav-col-4and5 box login-logout right">
+      Signed in as <%= current_user.authentication.name %>
+    </div>
+    <div class="nav-col-6 box login-logout right">
+        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+      <% else %>
+        <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+      <% end %>
+    </div>
   </div>
-</div>
+</div><!-- <div class="box header"> -->
