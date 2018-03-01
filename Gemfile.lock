@@ -43,6 +43,8 @@ GEM
     arel (8.0.0)
     bindex (0.5.0)
     builder (3.2.3)
+    bulma-rails (0.6.2)
+      sass (~> 3.2)
     byebug (10.0.0)
     capybara (2.18.0)
       addressable
@@ -297,6 +299,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bulma-rails (~> 0.6.2)
   byebug
   capybara
   chart-js-rails

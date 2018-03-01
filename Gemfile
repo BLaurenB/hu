@@ -27,6 +27,7 @@ gem 'csv'
 gem 'redis-rails'
 gem 'sidekiq'
 gem "skylight"
+gem "bulma-rails", "~> 0.6.2"
 
 # group :production, do
 #   gem 'rails_12factor'

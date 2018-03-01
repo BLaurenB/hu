@@ -15,7 +15,13 @@ class CensusService
 
   def get_data
     response = connection.get("/data/timeseries/eits/marts?get=cell_value&time=from+2016-01+to+2017-12&seasonally_adj=yes&category_code=#{code}&data_type_code=SM&key=#{ENV['US_CENSUS_KEY']}")
-    JSON.parse(response.body)
+
+    if response.body == ""
+      response = connection.get("/data/timeseries/eits/marts?get=cell_value&time=from+2016-01+to+2017-12&seasonally_adj=yes&category_code=453&data_type_code=SM&key=#{ENV['US_CENSUS_KEY']}")
+      JSON.parse(response.body)
+    else
+      JSON.parse(response.body)
+    end
     # binding.pry
   end
 

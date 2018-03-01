@@ -10,6 +10,7 @@ class HuInsights
   end
 
   def self.insight_maker(term_array, industry)
+    # binding.pry
     HuInsights.new(shop_service(term_array).parse_csv, search_service(term_array).parse_csv, census_service(industry).get_data)
   end
 
