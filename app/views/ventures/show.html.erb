@@ -1,3 +1,4 @@
+
 <div class="box"><% flash.each do |key, value| %>
    <div class="alert alert-<%= key %>"><%= value %>
  <% end %>
@@ -123,67 +124,28 @@ FAQs#index - How does Google score this data?
 </p>
 
 <h2>Census Trends  - Overall US, Industry specific</h2><br>
-*!*!***!*<%= @hu_insight.census.date_sorted_sales_array %>
-<h3>US Market Insight for venture's [industry name]</h3>
-Your industry has a growth rate of [industry #growth] for the past two years.
-!!!! THIS MEANS I NEED TO SAVE THE CENSUS DATA TO DO CALCS ON IT!!!!
-Your industry accounts for industry [#industry_share] % of the total US Retail and Food Service
+
+<h3>US Market Insight for <%= @industry.title %></h3>
+Your industry accounts for <%=  @hu_insight.census.percent_of_total_us%> % of the total US Retail and Food Service<br>
 
 *All data is gathered from the US MARTS API. See FAQs#index for more information.
 </p>
 
 <h3>Industry Performance: Sales in Millions for [industry .years] (2016-2017)</h3>
 
-<script>
-
-<% chart_data = [0.2, 0.1, 3.0, 0.6, 1.4, 2.1, 0.2, 0.9, 3.0, 0.6, 1.4, 2.1,0.2, 0.7, 3.0, 0.6, 1.4, 2.1, 0.0, 3.0, 0.5, 0.9, 0.1, 2.3] %>
-
-</script>
-<!-- <% background_color =  []%>
-<% (background_color << ('rgba(54, 162, 235, 0.2)'))*12%>
-<% (background_color << ('rgba(75, 192, 192, 0.2)'))*12%>
-
-<% line_color = []%>
-<% (line_color <<('rgba(54, 162, 235, 1)'))*12 %>
-<% (line_color << ('rgba(75, 192, 192, 1)'))*12 %> -->
-
-
 <canvas id="myChart" width="100" height="20"></canvas>
 <script>
 
-// let baseUrl = "https://api.census.gov"
-// let industry = <%= @venture.category_id %>
-// const populateCensus = (industry) => {
-//   fetch(`https://api.census.gov/data/timeseries/eits/marts?get=cell_value&seasonally_adj=yes&time=from+2016-01+to+2017-12&category_code=453&key=${ENV["US_CENSUS_KEY"]}&data_type_code=SM`)
-//   .then((response) => response.json)
-//   .then((raw_data) => {
-//     return raw_data.map(function(set) {
-//       console.log(set)
-//     })
-//   })
-//   .catch()
-// };
-//
-//
-//
-// .then((projects) => {
-//     return projects.forEach((project) => {
-//       appendProject(project, project.id);
-//       fetchPalettes(project.id);
-//     })
-//   })
-//
-//
 
 var ctx = document.getElementById("myChart");
+var data = <%= @hu_insight.census.date_sorted_sales_array %>;
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ["JAN16","FEB16","MAR16","APR16","MAY16","JUN16","JUL16","AUG16","SEP16","OCT16","NOV16","DEC16","JAN17","FEB17","MAR17","APR17","MAY17","JUN17","JUL17","AUG17","SEP17","OCT17","NOV17","DEC17"],
         datasets: [{
             label: 'SALES IN MILLIONS',
-            data: <%= chart_data %>,
-            // backgroundColor: <%= background_color %>,
+            data: data,
             backgroundColor: [
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -210,7 +172,6 @@ var myChart = new Chart(ctx, {
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 ],
-            // borderColor: <%= line_color %>,
             borderColor: [
                 'rgba(54, 162, 235, 1)',
                 'rgba(54, 162, 235, 1)',
@@ -237,7 +198,7 @@ var myChart = new Chart(ctx, {
                 'rgba(75, 192, 192, 1)',
                 'rgba(75, 192, 192, 1)'
             ],
-            borderWidth: 1
+            borderWidth: 3
         }]
     },
     options: {
