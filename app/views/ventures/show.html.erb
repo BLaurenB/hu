@@ -20,55 +20,110 @@
 If you score was less than 20 and your industry is not growing (or the industry is a comparatively small one), your Venture may not be financially successful. However, many Americans are successful in niche markets. Continue your research into regions of interest (local brick and mortor versus e-commerce), and the price per item or service which would be enticing to a small customer base/<p>
 <div class="insight-2-column box">
   <div class="google-col-1 box">
-    <h3>Google Shop Engine data</h3>
-    <p><%= term_1 %>: <%= @hu_insight.google_shop.word_1_insight %></p>
-    <p><%= term_2 %>: <%= @hu_insight.google_shop.word_2_insight %></p>
-    <p><%= term_3 %>: <%= @hu_insight.google_shop.word_3_insight %></p>
-    <p><%= term_4 %>: <%= @hu_insight.google_shop.word_4_insight %></p>
+    <h3>Google Shop Engine Popularity</h3>
+    <p>1: <%= term_1 %>: <%= @hu_insight.google_shop.word_1_insight %></p>
+    <p>2: <%= term_2 %>: <%= @hu_insight.google_shop.word_2_insight %></p>
+    <p>3: <%= term_3 %>: <%= @hu_insight.google_shop.word_3_insight %></p>
+    <p>4: <%= term_4 %>: <%= @hu_insight.google_shop.word_4_insight %></p>
+
+    <canvas id="googleShopChart" width="50" height="20"></canvas>
+    <script>
+
+    var ctx = document.getElementById("googleShopChart");
+    var data = <%= @hu_insight.google_shop.shop_chart_data %>;
+    // var googlelabel = <%= @terms.words %>;
+    var googleShopChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [1,2,3,4],
+            datasets: [{
+                label: 'Hu Popularity Score - Out of 100',
+                data:  data,
+                backgroundColor: [
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                    ],
+                borderColor: [
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 159, 64, 1)'
+                    ],
+                borderWidth: 3
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+    </script>
+
+
   </div > <!--class="google-col-1"-->
   <div class="google-col-2 box">
-    <h3>Google Search Engine data</h3>
+    <h3>Google Search Engine Popularity</h3>
     <p><%= term_1 %>: <%= @hu_insight.google_search.word_1_insight %></p>
     <p><%= term_2 %>: <%= @hu_insight.google_search.word_2_insight %></p>
     <p><%= term_3 %>: <%= @hu_insight.google_search.word_3_insight %></p>
     <p><%= term_4 %>: <%= @hu_insight.google_search.word_4_insight %></p>
+
+    <canvas id="googleSearchChart" width="50" height="20"></canvas>
+    <script>
+
+    var ctx = document.getElementById("googleSearchChart");
+    var data = <%= @hu_insight.google_search.search_chart_data %>;
+    // var googlelabel = <%= @terms.words %>;
+    var googleSearchChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [1,2,3,4],
+            datasets: [{
+                label: 'Hu Popularity Score - Out of 100',
+                data:  data,
+                backgroundColor: [
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                    ],
+                borderColor: [
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 159, 64, 1)'
+                    ],
+                borderWidth: 3
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+    </script>
   </div > <!--class="google-col2"-->
 </div > <!--class="insight-2-column"-->
 
-<p><br>
-<h2>Google Trends - Shopping and Search</h2>
+<p>
 All data gathered from https://trends.google.com/trends/explore<br>
 FAQs#index - How does Google score this data?
 </p>
 
-<h3>Results from Google Shopping:</h3>
-
-
-<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/1308_RC02/embed_loader.js"></script>
-<script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[
-  {"keyword":"bag","geo":"US","time":"today 12-m"},
-  {"keyword":"<%=term_1%>","geo":"US","time":"today 12-m"},
-  {"keyword":"<%=term_2%>","geo":"US","time":"today 12-m"},
-  {"keyword":"<%=term_3%>","geo":"US","time":"today 12-m"},
-  {"keyword":"<%=term_4%>","geo":"US","time":"today 12-m"}
-  ],
-  "category":0,"property":"froogle"}, {"exploreQuery":"geo=US&gprop=froogle&q=bag,<%=term_1%>,<%=term_2%>,<%=term_3%>,<%=term_4%>&date=today 12-m,today 12-m,today 12-m,today 12-m,today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
-
-
-<h3>Results from Google Search:</h3>
-<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/1308_RC02/embed_loader.js"></script> <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[
-  {"keyword":"news","geo":"US","time":"today 12-m"},
-  {"keyword":"<%=term_1%>","geo":"US","time":"today 12-m"},
-  {"keyword":"<%=term_2%>","geo":"US","time":"today 12-m"},
-  {"keyword":"<%=term_3%>","geo":"US","time":"today 12-m"},
-  {"keyword":"<%=term_4%>","geo":"US","time":"today 12-m"}
-  ],
-  "category":0,"property":""}, {"exploreQuery":"geo=US&q=news,<%=term_1%>,<%=term_2%>,<%=term_3%>,<%=term_4%>&date=today 12-m,today 12-m,today 12-m,today 12-m,today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
-
-<p><br>
-
 <h2>Census Trends  - Overall US, Industry specific</h2><br>
-
+*!*!***!*<%= @hu_insight.census.date_sorted_sales_array %>
 <h3>US Market Insight for venture's [industry name]</h3>
 Your industry has a growth rate of [industry #growth] for the past two years.
 !!!! THIS MEANS I NEED TO SAVE THE CENSUS DATA TO DO CALCS ON IT!!!!

@@ -47,5 +47,8 @@ class GoogleShopAll
       ((word_4_average / standard_average) * 100).to_i
     end
 
+    def shop_chart_data
+      [word_1_insight, word_2_insight, word_3_insight, word_4_insight]
+    end 
 
 end
