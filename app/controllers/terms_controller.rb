@@ -28,15 +28,15 @@ class TermsController < ApplicationController
   end
 
   def edit
-    @term = Term.find(params[:id]) #need to namescpae this!
-
+    @venture = current_user.ventures.find(params[:venture_id])
+    @terms = @venture.terms.find(params[:id])
   end
 
   def update
-    term = @venture.terms.find(params[:id])
-    term.update(term_params)
+    @venture = Venture.find(params[:venture_id])
+    terms = @venture.terms.find(params[:id])
+    terms.update(term_params)
     redirect_to ventures_path
-
   end
 
   private

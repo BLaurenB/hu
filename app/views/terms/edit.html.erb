@@ -1,9 +1,9 @@
-<h2>Create Search terms for <%= @venture.title %>  </h2>
+<h2>Update Search terms for <%= @venture.title %>  </h2>
 
 <p>Here are your notes: </p><br>
 <p><%= @venture.notes%></p><br>
 
-<%= form_for @term do |f|  %>
+<%= form_for [@venture, @terms] do |f|  %>
 <p>Add up to 4 search terms</p>
 <%= f.text_field('words', multiple: true) %>
 <%= f.text_field('words', multiple: true) %>

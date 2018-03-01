@@ -1,10 +1,7 @@
-<h2>Hi, <%=current_user.authentication.name%>!</h2>
+<h3 class="color-teal" id="size-1dot5-em">Hi, <%=current_user.authentication.name%>!</h3>
 
-<h3>Your Ventures: </h3>
+<h3 id="text-bold"><%= link_to "Start a New Venture", new_venture_path %></h3><br><br>
 
 <% @ventures.each do |venture| %>
-<%= link_to "#{venture.title}", venture_path(venture) %><br>
+Title: <%= link_to "#{venture.title}", venture_path(venture) %><br>
 <% end  %>
-<br>
-<br>
-<%= link_to "New Venture", new_venture_path %>

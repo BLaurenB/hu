@@ -1,8 +1,8 @@
 
-<h2 id="ventures_title">My Ventures</h2>
+<h3 class="color-teal" id="size-1dot5-em">My Ventures</h3>
 
-<h3><%= link_to "Start a New Venture", new_venture_path %></h3><br><br>
+<h3 id="text-bold"><%= link_to "Start a New Venture", new_venture_path %></h3><br><br>
 
 <% @ventures.each do |venture| %>
-<%= link_to "#{venture.title}", venture_path(venture) %>  || <%= link_to "Edit #{venture.title}", edit_venture_path(venture)%><br>
+Title: <%= link_to "  #{venture.title}", venture_path(venture) %><br>
 <% end  %>

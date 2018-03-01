@@ -6,7 +6,7 @@
 <h3 class="color-teal" id="size-1dot5-em">Current Search Terms:</h3>
 <h5>"<%= term_1 %>", "<%= term_2 %>", "<%= term_3 %>", "<%= term_4 %>"</h5>
 <p id="text-lighter">Terms last updated on <%= @venture.terms.first.updated_at %></p>
-<%= link_to "Edit #{@venture.title}", edit_venture_path(@venture) %><br><br><br><br>
+<%= link_to "Edit #{@venture.title}", edit_venture_path(@venture) %> || <%= link_to "Edit Search Terms", edit_venture_term_path(@venture, @terms) %><br><br><br><br>
 <h3 class="color-teal" id="size-1dot5-em">Hu Interest Scores</h3>
 
 <p class="color-blue" id="text-bold">0-20: Low Interest </p>
