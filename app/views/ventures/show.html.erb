@@ -1,142 +1,82 @@
 
-<div class="box"><% flash.each do |key, value| %>
-   <div class="alert alert-<%= key %>"><%= value %>
- <% end %>
-  </div>
-</div>
 <% term_1 = @terms.words[0]%><% term_2 = @terms.words[1]%><% term_3 = @terms.words[2]%><% term_4 = @terms.words[3]%>
 
-<h2>Venture: <%= @venture.title%></h2>
+<h2 id="size-2-em">Venture: <%= @venture.title%></h2>
 
-<h3>Current Search Terms:</h3>
+<h3 class="color-teal" id="size-1dot5-em">Current Search Terms:</h3>
 <h5>"<%= term_1 %>", "<%= term_2 %>", "<%= term_3 %>", "<%= term_4 %>"</h5>
-<p>Terms last updated on <%= @venture.terms.first.updated_at %></p><br>
-<h2>Hu Interest Scores</h2>
-<p>Total Insight Scores (LINK THE SCORE TO THE FAQ PAGE)<br>
-0-20: Low Interest (this range may be acceptable when considering other variables)<br>
-20-40: Some Interest<br>
-40-60: Medium Interest<br>
-60 + HOT!<br>
+<p id="text-lighter">Terms last updated on <%= @venture.terms.first.updated_at %></p><br>
+<h3 class="color-teal" id="size-1dot5-em">Hu Interest Scores</h3>
+
+<p class="color-blue" id="text-bold">0-20: Low Interest </p>
+<p id="text-lighter">(this range may be acceptable when considering other variables)</p>
+<p class="color-green" id="text-bold">20-40: Some Interest</p>
+<p class="color-orange" id="text-bold">40-60: Medium Interest</p>
+<p class="color-red" id="text-bold">60 + HOT!</p>
 <br>
-If you score was less than 20 and your industry is not growing (or the industry is a comparatively small one), your Venture may not be financially successful. However, many Americans are successful in niche markets. Continue your research into regions of interest (local brick and mortor versus e-commerce), and the price per item or service which would be enticing to a small customer base/<p>
-<div class="insight-2-column box">
-  <div class="google-col-1 box">
-    <h3>Google Shop Engine Popularity</h3>
-    <p>1: <%= term_1 %>: <%= @hu_insight.google_shop.word_1_insight %></p>
-    <p>2: <%= term_2 %>: <%= @hu_insight.google_shop.word_2_insight %></p>
-    <p>3: <%= term_3 %>: <%= @hu_insight.google_shop.word_3_insight %></p>
-    <p>4: <%= term_4 %>: <%= @hu_insight.google_shop.word_4_insight %></p>
-
-    <canvas id="googleShopChart" width="50" height="20"></canvas>
-    <script>
-
-    var ctx = document.getElementById("googleShopChart");
-    var data = <%= @hu_insight.google_shop.shop_chart_data %>;
-    // var googlelabel = <%= @terms.words %>;
-    var googleShopChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: [1,2,3,4],
-            datasets: [{
-                label: 'Hu Popularity Score - Out of 100',
-                data:  data,
-                backgroundColor: [
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                    ],
-                borderColor: [
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(255, 159, 64, 1)'
-                    ],
-                borderWidth: 3
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            }
-        }
-    });
-    </script>
 
 
-  </div > <!--class="google-col-1"-->
-  <div class="google-col-2 box">
-    <h3>Google Search Engine Popularity</h3>
-    <p><%= term_1 %>: <%= @hu_insight.google_search.word_1_insight %></p>
-    <p><%= term_2 %>: <%= @hu_insight.google_search.word_2_insight %></p>
-    <p><%= term_3 %>: <%= @hu_insight.google_search.word_3_insight %></p>
-    <p><%= term_4 %>: <%= @hu_insight.google_search.word_4_insight %></p>
 
-    <canvas id="googleSearchChart" width="50" height="20"></canvas>
-    <script>
+  <div class="columns">
 
-    var ctx = document.getElementById("googleSearchChart");
-    var data = <%= @hu_insight.google_search.search_chart_data %>;
-    // var googlelabel = <%= @terms.words %>;
-    var googleSearchChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: [1,2,3,4],
-            datasets: [{
-                label: 'Hu Popularity Score - Out of 100',
-                data:  data,
-                backgroundColor: [
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                    ],
-                borderColor: [
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(255, 159, 64, 1)'
-                    ],
-                borderWidth: 3
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            }
-        }
-    });
-    </script>
-  </div > <!--class="google-col2"-->
-</div > <!--class="insight-2-column"-->
+    <div class="column">
+      <p class="color-teal" id="text-bold">Google Shop Engine Popularity</p>
+      <p>1:  <%= term_1 %>: <%= @hu_insight.google_shop.word_1_insight %></p>
+      <p>2:  <%= term_2 %>: <%= @hu_insight.google_shop.word_2_insight %></p>
+      <p>3:  <%= term_3 %>: <%= @hu_insight.google_shop.word_3_insight %></p>
+      <p>4:  <%= term_4 %>: <%= @hu_insight.google_shop.word_4_insight %></p>
+    </div>
 
-<p>
-All data gathered from https://trends.google.com/trends/explore<br>
-FAQs#index - How does Google score this data?
-</p>
+    <div class="column">
+      <p class="color-teal" id="text-bold">Google Search Engine Popularity</p>
+      <p>1:  <%= term_1 %>: <%= @hu_insight.google_search.word_1_insight %></p>
+      <p>2:  <%= term_2 %>: <%= @hu_insight.google_search.word_2_insight %></p>
+      <p>3:  <%= term_3 %>: <%= @hu_insight.google_search.word_3_insight %></p>
+      <p>4:  <%= term_4 %>: <%= @hu_insight.google_search.word_4_insight %></p>
+    </div>
 
-<h2>Census Trends  - Overall US, Industry specific</h2><br>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <canvas id="googleShopChart" width="50" height="20"></canvas>
+    </div>
+    <div class="column">
+      <canvas id="googleSearchChart" width="50" height="20"></canvas>
+    </div>
+  </div>
 
-<h3>US Market Insight for <%= @industry.title %></h3>
-Your industry accounts for <%=  @hu_insight.census.percent_of_total_us%> % of the total US Retail and Food Service<br>
+  <p id="text-lighter">All data gathered from https://trends.google.com/trends/explore</p><br>
 
-*All data is gathered from the US MARTS API. See FAQs#index for more information.
-</p>
+  <p>If you score was less than 20 and your industry is not growing (or the industry is a comparatively small one), your Venture may not be financially successful. However, many Americans are successful in niche markets. Continue your research into regions of interest (local brick and mortor versus e-commerce), and the price per item or service which would be enticing to a small customer base</p><br><br>
 
-<h3>Industry Performance: Sales in Millions for [industry .years] (2016-2017)</h3>
+<div>
+<h2 class="color-teal" id="size-1dot5-em">Census Trends  - Overall US, Industry specific</h2><br>
 
+<h3 id="text-bold">US Market Insight for "<%= @industry.title %>"</h3>
+<p class="color-teal" id="text-bold">Your industry accounts for <%=  @hu_insight.census.percent_of_total_us%> % of the total US Retail and Food Service</p><br>
+
+
+<h3 id="center-text">Industry Performance: Sales in Millions for (2016-2017)</h3>
+</div>
 <canvas id="myChart" width="100" height="20"></canvas>
+<br>
+<p id="text-lighter">*All data is gathered from the US MARTS API. See FAQs for more information.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
-
-
 var ctx = document.getElementById("myChart");
 var data = <%= @hu_insight.census.date_sorted_sales_array %>;
 var myChart = new Chart(ctx, {
@@ -159,18 +99,18 @@ var myChart = new Chart(ctx, {
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
+                'rgba(25,	169,	25, 0.2)',
+                'rgba(25,	169,	25, 0.2)',
+                'rgba(25,	169,	25, 0.2)',
+                'rgba(25,	169,	25, 0.2)',
+                'rgba(25,	169,	25, 0.2)',
+                'rgba(25,	169,	25, 0.2)',
+                'rgba(25,	169,	25, 0.2)',
+                'rgba(25,	169,	25, 0.2)',
+                'rgba(25,	169,	25, 0.2)',
+                'rgba(25,	169,	25, 0.2)',
+                'rgba(25,	169,	25, 0.2)',
+                'rgba(25,	169,	25, 0.2)',
                 ],
             borderColor: [
                 'rgba(54, 162, 235, 1)',
@@ -185,19 +125,94 @@ var myChart = new Chart(ctx, {
                 'rgba(54, 162, 235, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(54, 162, 235, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(75, 192, 192, 1)'
+                'rgba(25,	169,	25, 1)',
+                'rgba(25,	169,	25, 1)',
+                'rgba(25,	169,	25, 1)',
+                'rgba(25,	169,	25, 1)',
+                'rgba(25,	169,	25, 1)',
+                'rgba(25,	169,	25, 1)',
+                'rgba(25,	169,	25, 1)',
+                'rgba(25,	169,	25, 1)',
+                'rgba(25,	169,	25, 1)',
+                'rgba(25,	169,	25, 1)',
+                'rgba(25,	169,	25, 1)',
+                'rgba(25,	169,	25, 1)'
             ],
+            borderWidth: 3
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+<script>
+var ctx = document.getElementById("googleShopChart");
+var data = <%= @hu_insight.google_shop.shop_chart_data %>;
+// var googlelabel = <%= @terms.words %>;
+var googleShopChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [1,2,3,4],
+        datasets: [{
+            label: 'Hu Popularity Score - Out of 100',
+            data:  data,
+            backgroundColor: [
+                'rgba(143,	218,	209, 0.2)',
+                'rgba(143,	218,	209, 0.2)',
+                'rgba(143,	218,	209, 0.2)',
+                'rgba(143,	218,	209, 0.2)'
+                ],
+            borderColor: [
+                'rgba(143,	218,	209, 1)',
+                'rgba(143,	218,	209, 1)',
+                'rgba(143,	218,	209, 1)',
+                'rgba(143,	218,	209, 1)'
+                ],
+            borderWidth: 3
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+<script>
+
+var ctx = document.getElementById("googleSearchChart");
+var data = <%= @hu_insight.google_search.search_chart_data %>;
+// var googlelabel = <%= @terms.words %>;
+var googleSearchChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [1,2,3,4],
+        datasets: [{
+            label: 'Hu Popularity Score - Out of 100',
+            data:  data,
+            backgroundColor: [
+                'rgba(143,	218,	209, 0.2)',
+                'rgba(143,	218,	209, 0.2)',
+                'rgba(143,	218,	209, 0.2)',
+                'rgba(143,	218,	209, 0.2)'
+                ],
+            borderColor: [
+                'rgba(143,	218,	209, 1)',
+                'rgba(143,	218,	209, 1)',
+                'rgba(143,	218,	209, 1)',
+                'rgba(143,	218,	209, 1)'
+                ],
             borderWidth: 3
         }]
     },

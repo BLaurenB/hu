@@ -49,6 +49,6 @@ class GoogleShopAll
 
     def shop_chart_data
       [word_1_insight, word_2_insight, word_3_insight, word_4_insight]
-    end 
+    end
 
 end

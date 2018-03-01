@@ -26,6 +26,7 @@ gem 'newrelic_rpm'
 gem 'csv'
 gem 'redis-rails'
 gem 'sidekiq'
+gem "skylight"
 
 # group :production, do
 #   gem 'rails_12factor'

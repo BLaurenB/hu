@@ -3,7 +3,7 @@ class HuInsights
   attr_reader :google_shop, :google_search, :census
 
   def initialize(shop_array, search_array, census_array)
-
+    # binding.pry
     @google_shop = GoogleShopAll.new(shop_array)
     @google_search = GoogleSearchAll.new(search_array)
     @census = Census.new(census_array)

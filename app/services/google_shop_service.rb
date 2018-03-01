@@ -22,7 +22,7 @@ attr_reader :terms
   end
 
   def cache_key
-    "google_show_".concat(terms.join('_'))
+    "google_shop_".concat(terms.join('_'))
   end
 
   def determine_file_name
@@ -44,7 +44,8 @@ attr_reader :terms
       file = File.open(csv_file)
       file.gets
       csv = CSV.new(file, headers: true)
-      File.delete(file_path)
+      # File.delete(file_path)
+
       csv.map do |row|
          row.to_hash
       end

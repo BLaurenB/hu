@@ -40,12 +40,13 @@ attr_reader :terms
 
     Rails.cache.fetch(cache_key) {
       scrape
+
       file_path = determine_file_name
       csv_file = File.expand_path(file_path)
       file = File.open(csv_file)
       file.gets
       csv = CSV.new(file, headers: true)
-      File.delete(file_path)
+      # File.delete(file_path)
       # binding.pry
       csv.map do |row|
          row.to_hash

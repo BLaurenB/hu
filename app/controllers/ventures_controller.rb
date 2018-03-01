@@ -21,9 +21,9 @@ class VenturesController < ApplicationController
   end
 
   def create
-    venture = current_user.ventures.new(venture_params)
-    if venture.save
-      redirect_to new_term_path
+    @venture = current_user.ventures.new(venture_params)
+    if @venture.save
+      redirect_to new_venture_term_path(@venture)
     else
       render :new
     end

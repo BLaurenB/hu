@@ -17,7 +17,7 @@ class TermsController < ApplicationController
 
     @term = @venture.terms.new(term_params)
     @term.update(venture_id: @venture.id, snapshot_id: snapshot.id)
-    binding.pry
+    # binding.pry
     if @term.save
       redirect_to venture_path(@venture)
     else
