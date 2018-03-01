@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "As a User when I visit the root" do
   #stub omniauth!
-  xit "I see a link to log in with Google" do
+  it "I see a link to log in with Google" do
     stub_omniauth
 
     visit '/'
@@ -10,7 +10,6 @@ describe "As a User when I visit the root" do
     expect(page).to have_content("Hu")
     expect(page).to have_content("Who is Hu?")
     click_on "Sign in with Google"
-
     expect(current_path).to eq("/dashboard")
 
   end
@@ -29,9 +28,12 @@ describe "As an authenticated user, when I log in" do
 
     visit '/dashboard'
     expect(page).to have_content("Hi, #{user.authentication.name}!")
-    expect(page).to have_content("Ventures")
+    expect(page).to have_content("Hi, BLauren Billington")
     expect(page).to have_content(venture[0].title)
     expect(page).to have_content(venture[2].title)
+
+    click_on 'Sign out'
+    expect(current_path).to eq('/')
 
   end
 end

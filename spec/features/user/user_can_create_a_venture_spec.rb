@@ -23,18 +23,15 @@ describe "As an authenticated User" do
     fill_in "venture[notes]", with: "Looooooooooooooooooooooooooooooooong list of notes"
     click_on "Next"
 
-    expect(current_path).to eq(new_term_path)
+    expect(current_path).to eq(new_venture_term_path(Venture.last))
     expect(Venture.last.title).to eq("Crazy Idea")
     expect(page).to have_content(Venture.last.notes)
 
     expect(page).to have_content("Create Search terms for")
-    fill_in "word_1", with: "cat"
-    fill_in "word_2", with: "dog"
-    fill_in "word_3", with: "kite"
-    fill_in "word_4", with: "bone"
+
     click_on "Get Report" #pass in  params and have a method that iterates through to create new Term objects. Terms need to be their own thing so that you can save different versions of the same Venture.
 
-    expect(current_path).to eq(ventures_path)
+    expect(current_path).to eq(venture_path(Venture.last))
     #From here, they can click a button to generate the report -- it's a button that generates the Venture show page...but first sends them an email.
 
     end
