@@ -6,22 +6,52 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
+
 
   </head>
-
   <body>
-    <div class="box site-wrapper">
-        <%= render 'layouts/nav_bar' %>
-      <div class="main">
-        <div class="main-container">
-          <%= yield %>
-        </div><!-- <div class="main"> -->
-      </div><!-- <div class="main-container"> -->
+    <section class="hero is-primary is-medium">
+      <!-- Hero head: will stick at the top -->
+      <div class="hero-head">
+      <%= render 'layouts/nav_bar' %>
+      </div>
+    </section>
 
-    <div class="box footer center">
-    <%= render 'layouts/footer' %>
-    </div> <!-- <div class="box footer"> -->
-  </div> <!-- <div class="site-wrapper"> -->
+    <div class="container">
+      <div class="level columns">
+        <div class="level-left column">
+          <div class="level-item">
+            <div class="container">
+        
+                  <%= yield %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+      <!-- Hero footer: will stick at the bottom -->
+      <div class="hero-foot">
+        <nav class="tabs">
+          <div class="container">
+            <!-- <ul>
+              <li class="is-active"><a>Overview</a></li>
+              <li><a>Modifiers</a></li>
+              <li><a>Grid</a></li>
+              <li><a>Elements</a></li>
+              <li><a>Components</a></li>
+              <li><a>Layout</a></li>
+            </ul> -->
+          </div>
+        </nav>
+      </div>
+     </section>
+
   </body>
 </html>
