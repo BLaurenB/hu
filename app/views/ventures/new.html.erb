@@ -1,19 +1,23 @@
-<h2>New Venture</h2>
+<h3 class="color-teal" id="size-1dot5-em">New Venture </h3>
+<br>
 
 <%= form_for @venture do |f| %>
 <%= f.label :title %>
 <%= f.text_field :title %>
 <%= f.label :description %>
 <%= f.text_field :description %>
+<br><br>
 <h3>Select your Industry</h3>
-<%= f.select(:category_id, @categories.map {|c| [c.title, c.id]}) %><br>
 
-<h3>Add Notes:</h3>
-<p>Consider these questions before choosing your search terms on the following page.<br>
-  Check out our FAQs on how to choose good search terms.<br>
-  (Don't worry, you can change your search terms at any time)</p>
-  <p>
-    <ul>
+<%= f.select(:category_id, @categories.map {|c| [c.title, c.id]}) %>
+<br>
+<br>
+<br>
+
+
+<p class="color-teal" id="text-bold">Consider these questions before choosing your search terms on the following page.</p><br>
+  <p >
+    <ul class="color-teal">
       <li>What problems does your Venture solve?
       <li>What makes your Venture different or better than other Ventures?
       <li>What groups of people do you think would be interested in your Venture? Think of factors such as age, gender, location, and financial capacity.
@@ -21,6 +25,7 @@
     </ul>
   </p>
 
+<br>
 <%= f.label :notes %><br>
 <%= f.text_area :notes %><br>
 <%= f.submit "Next" %>

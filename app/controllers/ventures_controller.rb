@@ -7,7 +7,7 @@ class VenturesController < ApplicationController
 
   def show
     @venture = Venture.where(user_id: current_user.id).find(params[:id])
-    @terms = @venture.terms.last # ".last" will change based on whether the user has updated search terms
+    @terms = Term.where(venture_id: @venture.id).last
     @industry = Category.find(@venture.category_id)
     @hu_insight = HuInsights.insight_maker(@terms.words, @industry.code)
 
@@ -27,6 +27,19 @@ class VenturesController < ApplicationController
     else
       render :new
     end
+  end
+
+
+  def edit
+    @venture = current_user.ventures.find(params[:id])
+    @categories = Category.all
+  end
+
+
+  def update
+    @venture = current_user.ventures.find(params[:id])
+    @venture.update(venture_params)
+    redirect_to venture_path(@venture)
   end
 
   private
