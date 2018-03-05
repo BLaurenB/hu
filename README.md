@@ -27,8 +27,8 @@ Google search terms normalization:
 * I researched popular search terms for 2017 and added one of the terms to each Engine search in order to give Users a better understanding of the general performance of their search terms. For the Shop Engine, I added "bag", and for the Search Engine, I added "news"
 
 CSV file names. Initially, all files were downloaded as "multiTimeline.csv", however sometimes they were downloaded as "multiTimeline.csv.crdownload" (and later, they changed to something totally different).
-* To address the initial situation where a filename was the same no matter the contents, I deleted the file as one of the steps in turing the CSV contents into a hash
-* To account for the 2 names, I implemented som if/else logic. However, now that I know the filenames are subject to much more change than 1-2 options, I'll need to write code that looks for the most rcently downloaded file and renames it to something based on the search terms. 
+* To address the initial situation where a filename was the same no matter the contents, I deleted the file as one of the steps in turning the CSV contents into a hash
+* To account for the 2 names, I implemented some if/else logic. However, now that I know the filenames are subject to much more change than 1-2 options, I'll need to write code that looks for the most recently downloaded file and renames it to something based on the search terms and a timestamp, then update my cached methods to look for the most recent version of that file for the same terms.
 
 ## Looking Ahead
 Because Google Trends data is a brittle source for data, I would need to find sources with APIs such as Twitter in order to provide popularity data to users. 
